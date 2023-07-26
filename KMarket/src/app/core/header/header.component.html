@@ -5,10 +5,11 @@
       <p class="site-name">KMarket</p>
     </div>
     <div class="mini-navbar">
-        <!-- Not Logged In -->
+      <!-- Not Logged In -->
       <ul>
-        <li>Login</li>
-        <li>Register</li>
+        <li><a routerLink="/login">Login</a></li>
+        <li><a routerLink="/register">Register</a>
+        </li>
       </ul>
       <!-- Logged In -->
       <!-- <ul>
@@ -20,9 +21,22 @@
   <!-- Navigation -->
   <nav>
     <ul>
-        <li class="first-element"><a routerLink="">All Products</a></li>
-        <li class="second-element"><a routerLink="">My Products</a></li>
-        <li class="third-element"><a routerLink="">Create a Product</a></li>
+      <li class="first-element">
+        <a routerLink=""
+          ><div class="dropdown">
+            <button class="dropbtn">All Products</button>
+            <div class="dropdown-content">
+              <a href="#">Home</a>
+              <a routerLink="/home">Electronics</a>
+              <a href="#">Sport</a>
+              <a href="#">Clothes and Shoes</a>
+              <a href="#">Children</a>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li class="second-element"><a routerLink="">My Products</a></li>
+      <li class="third-element"><a routerLink="">Create a Product</a></li>
     </ul>
   </nav>
 </header>
