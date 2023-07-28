@@ -1,35 +1,97 @@
-<div class="container">
-  <form class="login">
+<!-- <div class="container">
+  <form class="login" #form="ngForm">
     <fieldset>
       <h2>Login Form</h2>
       <p>
         <i class="fa fa-cloud"></i>
-        <label for="username"></label>
+        <label for="email"></label>
         <input
-          type="username"
-          name="username"
-          id="username"
-          placeholder="krisi"
+        matInput
+        [formControl]="passwordControl"
+          type="email"
+          name="email"
+          id="email"
+          placeholder="krisi@gmail.com"
+          
+          required
         />
       </p>
+
+      #inputEmail = "ngModel"
+          ngModel -->
+
+<!-- <ng-container *ngIf="inputEmail.touched">
+        <p class="error" *ngIf="inputEmail.errors?.['required']">
+            Username is required!
+        </p>
+        <p class="error" *ngIf="inputEmail.errors?.['appEmailValidator']">
+            Username is not valid!
+        </p>
+    </ng-container>
 
       <p>
         <label for="password"></label>
         <i class="fa fa-cloud"></i>
         <input
+        matInput
+        [formControl]="passwordControl"
           type="password"
           name="password"
           id="password"
           placeholder="*****"
+          
+          
+          required
         />
       </p>
+      ngModel
+          #inputPassword = "ngModel"
 
-      <button>Login</button>
+      <ng-container *ngIf="inputPassword.touched">
+        <p class="error" *ngIf="inputPassword.errors?.['required']">
+            Password is required!
+        </p>
+        <p class="error" *ngIf="inputPassword.errors?.['appEmailValidator']">
+            Username is not valid!
+        </p> 
+    </ng-container>
+
+      <button (click)="loginWithEmailAndPassword()" [disabled]="form.invalid">Login</button>
 
       <p class="no-account">
         Don't have an account?
         <button>Register</button>
       </p>
+
+      <div (click)="loginWithGoogle()">
+        <app-login-with-google></app-login-with-google>
+      </div>
     </fieldset>
   </form>
+</div> -->
+
+<div class="login-container">
+  <div [formGroup]="loginForm" class="login-content">
+    <p class="title">Login</p>
+    <p class="intro">Welcome back!</p>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Username</mat-label>
+      <input formControlName="username" matInput type="text" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input formControlName="password" matInput type="text" />
+    </mat-form-field>
+
+    <p class="forgot-label">Forgot Password</p>
+
+    <p class="alternative">Don't have an account? <span>Sign Up</span></p>
+    <button (click)="loginWithEmailAndPassword()">Login</button>
+
+    <div class="divider">
+      <p>Or</p>
+    </div>
+  </div>
 </div>

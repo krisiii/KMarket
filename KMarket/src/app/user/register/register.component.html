@@ -16,12 +16,12 @@
 
               <p>
                 <i class="fa fa-cloud"></i>
-                <label for="email"></label>
+                <label for="phoneNumber"></label>
                 <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="krisi@gmail.com"
+                  type="phoneNumber"
+                  name="phoneNumber"
+                  id="phoneNumber"
+                  placeholder="09875567234"
                 />
               </p>
         
@@ -37,17 +37,17 @@
               </p>
         
               <p>
-                <label for="rePassword"></label>
+                <label for="confirmPassword"></label>
                 <i class="fa fa-cloud"></i>
                 <input
-                  type="rePassword"
-                  name="rePassword"
-                  id="rePassword"
+                  type="password"
+                  name="confirmPassword"
+                  id="confirmPassword"
                   placeholder="*****"
                 />
               </p>
 
-              <button>Register</button>
+              <button (click)="registerWithEmailAndPassword()" >Register</button>
 
               <p>Already have an account?
                 <button>Login</button>

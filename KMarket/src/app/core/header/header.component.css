@@ -1,7 +1,6 @@
 .upper-navbar-wrap{
     background-color: #79c2d0;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin: auto;
