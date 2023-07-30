@@ -7,9 +7,11 @@ import { RegisterComponent } from './register/register.component';
 import { LoginWithGoogleComponent } from './login-with-google/login-with-google.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ProfileComponent } from './profile/profile.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, LoginWithGoogleComponent],
+  declarations: [LoginComponent, RegisterComponent, LoginWithGoogleComponent, ProfileComponent, CartComponent],
   imports: [
     CommonModule,
     UserRoutingModule,

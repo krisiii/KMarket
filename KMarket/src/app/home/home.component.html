@@ -1,1 +1,6 @@
-<p>hello</p>
+<div *ngFor="let p of products | async">
+    <img [src]="p.hasImage" alt="">
+    <p>{{p.itemCategory}}</p>
+    <p>{{p.itemID}}</p>
+    <p>{{p.itemName}}</p>
+</div>

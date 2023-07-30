@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
+import { CartComponent } from './cart/cart.component';
 // import { ProfileComponent } from './profile/profile.component';
 // import { AuthActivate } from '../core/guards/auth.activate';
 
@@ -16,11 +18,16 @@ const routes: Routes = [
     component: RegisterComponent,
     //canActivate: [AuthActivate],
   },
-//   {
-//     path: 'profile',
-//     component: ProfileComponent,
-//     //canActivate: [AuthActivate],
-//   },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    //canActivate: [AuthActivate],
+  },
+  {
+    path: 'cart',
+    component: CartComponent,
+    //canActivate: [AuthActivate],
+  },
 ];
 
 @NgModule({

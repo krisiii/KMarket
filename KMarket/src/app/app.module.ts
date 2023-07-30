@@ -33,8 +33,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
     MatInputModule,
     MatFormFieldModule,
     FirestoreModule,
-    AngularFirestoreModule
-  ],
+    AngularFirestoreModule,
+      ],
   providers: [],
   bootstrap: [AppComponent],
 })

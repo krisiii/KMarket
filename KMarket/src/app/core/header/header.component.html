@@ -6,16 +6,23 @@
     </div>
     <div class="mini-navbar">
       <!-- Not Logged In -->
-      <ul>
-        <li><a routerLink="/login">Login</a></li>
-        <li><a routerLink="/register">Register</a>
-        </li>
-      </ul>
-      <!-- Logged In -->
-      <!-- <ul>
-        <li>Profile</li>
-        <li>Logout</li>
-      </ul> -->
+      <div *ngIf="!isLoggedIn">
+        <ul>
+          <li><a routerLink="/login">Login</a></li>
+          <li><a routerLink="/register">Register</a>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Logged In  -->
+      <div *ngIf="isLoggedIn">
+        <ul>
+          <li class="cart" routerLink="/cart"><i class="fa fa-shopping-cart"></i></li>
+          <li><a routerLink="/profile">Profile</a></li>
+          <button (click)="logout()">Logout</button>
+        </ul>
+      </div>
+      
     </div>
   </div>
   <!-- Navigation -->

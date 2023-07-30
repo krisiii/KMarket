@@ -1,0 +1,11 @@
+{
+  "appId": "com.example.app",
+  "appName": "KMarket",
+  "bundledWebRuntime": false,
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}

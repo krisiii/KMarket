@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     username: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
   });
-  appEmailDomains = DEFAULT_EMAIL_DOMAINS;
+  // appEmailDomains = DEFAULT_EMAIL_DOMAINS;
   constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {}
@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
         console.error(err);
       });
   }
+
 
   loginWithEmailAndPassword() {
     console.log(this.loginForm.value);
