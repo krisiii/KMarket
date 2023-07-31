@@ -1,6 +1,52 @@
-<div *ngFor="let p of products | async">
+<!-- <div *ngFor="let p of products | async">
     <img [src]="p.hasImage" alt="">
     <p>{{p.itemCategory}}</p>
     <p>{{p.itemID}}</p>
     <p>{{p.itemName}}</p>
-</div>
+    <button routerLink="/home/{{p.itemID}}">Details</button>
+</div> -->
+
+<app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+
+
+<ng-container class="container page-wrapper" *ngFor="let p of products | async">
+  <div *ngIf="searchText === '' || p.itemName.toLowerCase().includes(searchText)">
+    <img [src]="p.hasImage" alt="">
+    <p>{{p.itemCategory}}</p>
+    <p>{{p.itemID}}</p>
+    <p>{{p.itemName}}</p>
+    <button routerLink="/home/{{p.itemID}}">Details</button>
+  </div>
+</ng-container>
+
+  
+    <!-- <div class="page-inner" >
+      <div class="row">
+        <div class="el-wrapper">
+          <div class="box-up">
+            <img class="img" [src]="p.hasImage" alt="">
+            <div class="img-info">
+              <div class="info-inner">
+                <span class="p-name">{{p.itemName}}</span>
+                <span class="p-company">{{p.itemCategory}}</span>
+              </div>
+              <div class="a-size">Available sizes : <span class="size">S , M , L , XL</span></div>
+            </div>
+          </div>
+  
+          <div class="box-down">
+            <div class="h-bg">
+              <div class="h-bg-inner"></div>
+            </div>
+  
+            <a class="cart" routerLink="/home/{{p.itemID}}">
+              <span class="price">$120</span>
+              <span class="add-to-cart">
+                <span class="txt" >Details</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    

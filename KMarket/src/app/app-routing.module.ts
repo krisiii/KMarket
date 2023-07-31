@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
+import { DetailsComponent } from './details/details.component';
 
 const routes: Routes = [
   {
@@ -12,7 +13,17 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent
+    children:[
+      {
+        path: '',
+        pathMatch: 'full',
+        component: HomeComponent
+      },
+      {
+        path: ':itemID',
+        component: DetailsComponent
+      }
+    ]
   },
   {
     path: 'login',
@@ -21,7 +32,7 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
-  }
+  },
 ];
 
 @NgModule({

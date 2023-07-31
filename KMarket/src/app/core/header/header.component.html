@@ -1,32 +1,45 @@
 <header>
   <div class="upper-navbar-wrap">
-    <div class="logo-wrap">
-      <p class="logo">*</p>
-      <p class="site-name">KMarket</p>
-    </div>
+        
+          <div class="dropdown">
+            <div class="logo-wrap">
+              <p class="logo">*</p>
+              <a routerLink=""><p class="site-name">KMarket</p></a>
+            </div>
+            <div class="dropdown-content">
+              <a href="#">Home</a>
+              <a routerLink="/home">Electronics</a>
+              <a href="#">Sport</a>
+              <a href="#">Clothes and Shoes</a>
+              <a href="#">Children</a>
+            </div>
+          
+        
+      </div>
+
     <div class="mini-navbar">
       <!-- Not Logged In -->
       <div *ngIf="!isLoggedIn">
         <ul>
-          <li><a routerLink="/login">Login</a></li>
-          <li><a routerLink="/register">Register</a>
-          </li>
+          <li><button routerLink="/login">Login</button></li>
+          <li><button routerLink="/register">Register</button></li>
         </ul>
       </div>
-      
+
       <!-- Logged In  -->
-      <div *ngIf="isLoggedIn">
+      <div class="user" *ngIf="isLoggedIn">
         <ul>
-          <li class="cart" routerLink="/cart"><i class="fa fa-shopping-cart"></i></li>
-          <li><a routerLink="/profile">Profile</a></li>
-          <button (click)="logout()">Logout</button>
+          <li class="cart" routerLink="/cart">
+            <i class="fa fa-shopping-cart"></i>
+          </li>
+          <li><button routerLink="/profile">Profile</button></li>
+          <button (click)="logout()">LogOut</button>
         </ul>
       </div>
-      
     </div>
   </div>
   <!-- Navigation -->
-  <nav>
+  <!-- <nav>
     <ul>
       <li class="first-element">
         <a routerLink=""
@@ -45,5 +58,5 @@
       <li class="second-element"><a routerLink="">My Products</a></li>
       <li class="third-element"><a routerLink="">Create a Product</a></li>
     </ul>
-  </nav>
+  </nav> -->
 </header>
