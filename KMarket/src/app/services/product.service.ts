@@ -34,12 +34,6 @@ export class ProductService {
   
 
   getProduct(itemID:string){
-    // console.log(this.product?.itemID);
-    // return this.http.get<Product>(`http://localhost:4200/details/${this.product?.itemID}`)
     return this.http.get<Product>(`http://localhost:4200/home/${itemID}`)
-
-    // return this.http
-    //   .get<Product>(`http://localhost:4200/details/${itemID}`)
-    //   .pipe(tap((product) => this.product$$.next(product)));
   }
 }

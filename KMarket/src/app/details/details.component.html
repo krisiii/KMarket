@@ -1,6 +1,6 @@
-<div *ngIf="product">
-    <img [src]="product.hasImage" alt="">
-    <p>{{product.itemCategory}}</p>
-    <p>{{product.itemID}}</p>
-    <p>{{product.itemName}}</p>
+
+<div *ngIf="object | async as object">
+    <p>hello</p>
+<p>{{object.itemID}}</p>
+<img [src]="object.hasImage" alt="">
 </div>

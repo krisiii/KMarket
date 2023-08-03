@@ -19,6 +19,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
 import { DetailsComponent } from './details/details.component'; 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SearchComponent } from './search/search.component';
+import { Database } from 'firebase/database';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, DetailsComponent, SearchComponent],
@@ -37,6 +39,8 @@ import { SearchComponent } from './search/search.component';
     MatFormFieldModule,
     FirestoreModule,
     AngularFirestoreModule,
+    AngularFireDatabaseModule
+    
       ],
   providers: [],
   bootstrap: [AppComponent],

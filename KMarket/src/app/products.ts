@@ -3,6 +3,6 @@ export interface Product{
     itemCategory: string, 
     itemName: string,
     itemID: string,
-    itemPriceFull: number,
+    itemPriceFull: string,
     itemType: string,
 }

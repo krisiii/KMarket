@@ -27,8 +27,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.products = this.productService.getProducts();
     this.productService.getProducts().subscribe((res) => {
-      let products = JSON.stringify(res);
-      localStorage.setItem('products', products);
+      console.log(res);
+      
 
       this.fireAuth.authState.subscribe((user) => {
         if (user) {
