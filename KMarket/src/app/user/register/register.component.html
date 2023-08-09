@@ -1,164 +1,42 @@
-<!-- <div class="container">
-    <form class="register">
-        <fieldset>
-            <h2>Register Form</h2>
+<div class="all">
+  <div class="register-container">
+    <div [formGroup]="registerForm" class="register-content">
+      <p class="title">Register to KMarket</p>
 
-            <p>
-                <i class="fa fa-cloud"></i>
-                <label for="username"></label>
-                <input
-                  type="username"
-                  name="username"
-                  id="username"
-                  placeholder="krisi"
-                />
-              </p>
-
-              <p>
-                <i class="fa fa-cloud"></i>
-                <label for="phoneNumber"></label>
-                <input
-                  type="phoneNumber"
-                  name="phoneNumber"
-                  id="phoneNumber"
-                  placeholder="09875567234"
-                />
-              </p>
-        
-              <p>
-                <label for="password"></label>
-                <i class="fa fa-cloud"></i>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="*****"
-                />
-              </p>
-        
-              <p>
-                <label for="confirmPassword"></label>
-                <i class="fa fa-cloud"></i>
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  id="confirmPassword"
-                  placeholder="*****"
-                />
-              </p>
-
-              <button (click)="registerWithEmailAndPassword()" >Register</button>
-
-              <p>Already have an account?
-                <button>register</button>
-              </p>
-        </fieldset>
-    </form>
-</div> -->
-
-<!-- <div class="container">
-  <form class="register" #form="ngForm">
-    <fieldset>
-      <h2>register Form</h2>
-      <p>
-        <i class="fa fa-cloud"></i>
-        <label for="email"></label>
-        <input
-        matInput
-        [formControl]="passwordControl"
-          type="email"
-          name="email"
-          id="email"
-          placeholder="krisi@gmail.com"
-          
-          required
-        />
-      </p>
-
-      #inputEmail = "ngModel"
-          ngModel -->
-
-<!-- <ng-container *ngIf="inputEmail.touched">
-        <p class="error" *ngIf="inputEmail.errors?.['required']">
-            Username is required!
-        </p>
-        <p class="error" *ngIf="inputEmail.errors?.['appEmailValidator']">
-            Username is not valid!
-        </p>
-    </ng-container>
-
-      <p>
-        <label for="password"></label>
-        <i class="fa fa-cloud"></i>
-        <input
-        matInput
-        [formControl]="passwordControl"
-          type="password"
-          name="password"
-          id="password"
-          placeholder="*****"
-          
-          
-          required
-        />
-      </p>
-      ngModel
-          #inputPassword = "ngModel"
-
-      <ng-container *ngIf="inputPassword.touched">
-        <p class="error" *ngIf="inputPassword.errors?.['required']">
-            Password is required!
-        </p>
-        <p class="error" *ngIf="inputPassword.errors?.['appEmailValidator']">
-            Username is not valid!
-        </p> 
-    </ng-container>
-
-      <button (click)="registerWithEmailAndPassword()" [disabled]="form.invalid">register</button>
-
-      <p class="no-account">
-        Don't have an account?
-        <button>Register</button>
-      </p>
-
-      <div (click)="registerWithGoogle()">
-        <app-register-with-google></app-register-with-google>
+      <div class="email">
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input formControlName="username" matInput type="text" />
+        </mat-form-field>
       </div>
-    </fieldset>
-  </form>
-</div> -->
 
-<div class="register-container">
-  <div [formGroup]="registerForm" class="register-content">
-    <p class="title">Register</p>
-    <p class="intro">Welcome back!</p>
+      <div class="pass">
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input formControlName="password" matInput type="text" />
+        </mat-form-field>
+      </div>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Username</mat-label>
-      <input formControlName="username" matInput type="text" />
-    </mat-form-field>
+      <div class="confPass">
+        <mat-form-field appearance="outline">
+          <mat-label>Confirm Password</mat-label>
+          <input formControlName="confirmPassword" matInput type="text" />
+        </mat-form-field>
+      </div>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Phone</mat-label>
-      <input formControlName="phoneNumber" matInput type="text" />
-    </mat-form-field>
+      <button (click)="registerWithEmailAndPassword()">Register</button>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Password</mat-label>
-      <input formControlName="password" matInput type="text" />
-    </mat-form-field>
+      <div class="divider">
+        <p>- OR -</p>
+      </div>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Confirm Password</mat-label>
-      <input formControlName="confirmPassword" matInput type="text" />
-    </mat-form-field>
+      <button class="googleBtn" (click)="loginWithGoogle()">
+        <i class="fa fa-google"></i>Login with Google
+      </button>
 
-
-    <p class="alternative">Don't have an account? <span>Sign Up</span></p>
-    <button (click)="registerWithEmailAndPassword()">Register</button>
-
-    <div class="divider">
-      <p>Or</p>
+      <p class="alternative">
+        Already have an account? <a routerLink="/login">Login</a>
+      </p>
     </div>
   </div>
 </div>

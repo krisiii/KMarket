@@ -25,6 +25,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  provider:any;
+
 
   loginWithGoogle() {
     this.authService
@@ -36,6 +38,7 @@ export class LoginComponent implements OnInit {
         console.error(err);
       });
   }
+
 
   loginWithEmailAndPassword() {
     console.log(this.loginForm.value);

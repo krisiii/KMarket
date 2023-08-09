@@ -1,31 +1,42 @@
-
-
 <div class="all">
-
-    <div class="login-container">
+  <div class="login-container">
     <div [formGroup]="loginForm" class="login-content">
-      <p class="title">Login</p>
+      <p class="title">Login to KMarket</p>
       <p class="intro">Welcome back!</p>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Username</mat-label>
-        <input formControlName="username" matInput type="text" />
-      </mat-form-field>
+      <div class="username">
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input formControlName="username" matInput type="text" />
+        </mat-form-field>
+      </div>
+
+      
 
       <mat-form-field appearance="outline" class="password">
         <mat-label>Password</mat-label>
         <input formControlName="password" matInput type="text" />
       </mat-form-field>
 
-      <a class="forgot-label" routerLink="/forgot-password">Forgot Password</a>
-
-      <p class="alternative">Don't have an account? <span>Sign Up</span></p>
-      <button (click)="loginWithEmailAndPassword()">Login</button>
+      <div class="loginButton">
+        <button class="loginBtn" (click)="loginWithEmailAndPassword()">
+          Login
+        </button>
+      </div>
 
       <div class="divider">
-        <p>Or</p>
+        <p>- OR -</p>
       </div>
+
+      <button class="googleBtn" (click)="loginWithGoogle()">
+        <i class="fa fa-google"></i>Login with Google
+      </button>
+
+      <p class="alternative">
+        Don't have an account? <a routerLink="/register">Sign Up</a>
+      </p>
+
+      <a class="forgot-label" routerLink="/forgot-password">Forgot Password?</a>
     </div>
   </div>
-
 </div>

@@ -17,9 +17,7 @@ export class RegisterComponent implements OnInit {
   passwordControl: FormControl = new FormControl('', Validators.required);
 
   registerForm: FormGroup = new FormGroup({
-    username: new FormControl('', [Validators.required, Validators.email]),
-    phoneNumber: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
+    username: new FormControl('', [Validators.required, Validators.email]),    password: new FormControl('', Validators.required),
     confirmPassword: new FormControl('', Validators.required),
   });
 
@@ -39,4 +37,15 @@ export class RegisterComponent implements OnInit {
       });
   }
   ngOnInit(): void {}
+
+  loginWithGoogle() {
+    this.authService
+      .signInWithGoogle()
+      .then((res: any) => {
+        this.router.navigate(['home']);
+      })
+      .catch((err: any) => {
+        console.error(err);
+      });
+  }
 }

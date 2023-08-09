@@ -9,18 +9,117 @@ fieldset{
 }
 
  */
+ /* #a2a8d3 */
 
- .login-container{
-    border: 1px solid black;
-    width: 30%;
-    text-align: center;
-    margin: auto;
-    margin-top: 5%;
- }
+.all {
+  overflow: hidden;
+  background-color: #e7eaf6;
+}
+
+.login-container {
+  border: 3px solid #3c4b66;
+  border-radius: 10%;
+  width: 40%;
+  text-align: center;
+  margin: auto;
+  margin-top: 5%;
+  background-color: #d5def5;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+.username{
+    padding-top: 4%;
+}
 
 
- .forgot-label{
-    margin-left: 90%;
+/* Title */
+.title {
+  font-size: 320%;
+  color: #142d4c;
+}
+
+.intro{
+    font-size: 150%;
+    padding-top: 3%;
+    color: #3c4b66;
+}
+
+/* Forgot pass */
+.forgot-label {
+  margin-left: 90%;
+  width: 45%;
+  float: right;
+  color: #142d4c;
+  padding-top: 2%;
+  font-size: 90%;
+}
+
+a, a:hover, a:active, a:visited, a:focus {
+    text-decoration:none;
+}
+
+/* login button */
+.loginButton{
     width: 100%;
-    float: right;
- }
+    text-align: center;
+}
+
+.loginBtn{
+    width: 50%;
+    height: 30%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 120%;
+    letter-spacing: 5%;
+    border: 1px solid #142d4c;
+    border-radius: 5%;
+    color: #142d4c;
+}
+
+.loginBtn:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: #3c4b66;
+    color: #d5def5;
+}
+
+/* Or */
+.divider{
+margin-top: 3%;
+}
+
+/* Google button */
+
+i{
+    padding-right: 4%;
+}
+
+.googleBtn{
+    width: 50%;
+    height: 30%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 120%;
+    letter-spacing: 5%;
+    border: 1px solid #142d4c;
+    border-radius: 5%;
+    color: #142d4c;
+}
+
+.googleBtn:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: #3c4b66;
+    color: #d5def5;
+}
+
+/* alternative */
+
+.alternative{
+    margin-top: 3%;
+    color: #142d4c;
+}
+
+.alternative a{
+    color: #5585b5;
+}
+

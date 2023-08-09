@@ -1,0 +1,96 @@
+/* form{
+    width: 30%;
+    text-align: center;
+    margin: 10% auto;
+}
+
+fieldset{
+    border: 1px solid black;
+}
+
+ */
+ /* #a2a8d3 */
+
+ .all {
+    overflow: hidden;
+    background-color: #e7eaf6;
+  }
+  
+  .register-container {
+    border: 3px solid #3c4b66;
+    border-radius: 10%;
+    width: 40%;
+    text-align: center;
+    margin: auto;
+    margin-top: 5%;
+    background-color: #d5def5;
+    padding-top: 3%;
+    padding-bottom: 1%;
+  }
+  
+  .username{
+      padding-top: 4%;
+  }
+  
+  
+  /* Title */
+  .title {
+    font-size: 320%;
+    color: #142d4c;
+    margin-bottom: 10%;
+  }
+  
+  
+  /* Forgot pass */
+  .forgot-label {
+    margin-left: 90%;
+    width: 45%;
+    float: right;
+    color: #142d4c;
+    padding-top: 2%;
+    font-size: 90%;
+  }
+  
+  a, a:hover, a:active, a:visited, a:focus {
+      text-decoration:none;
+  }
+  
+  /* login button */
+  .loginButton{
+      width: 100%;
+      text-align: center;
+  }
+  
+  button{
+      width: 50%;
+      height: 30%;
+      padding-top: 2%;
+      padding-bottom: 2%;
+      font-size: 120%;
+      letter-spacing: 5%;
+      border: 1px solid #142d4c;
+      border-radius: 5%;
+      color: #142d4c;
+  }
+  
+  button:hover{
+      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+      background-color: #3c4b66;
+      color: #d5def5;
+  }
+
+  button a{
+    color: #5585b5;
+  }
+
+  .alternative{
+    margin-top: 5%;
+  }
+
+  /* Or */
+.divider{
+    margin-top: 3%;
+    }
+    
+  
+  
