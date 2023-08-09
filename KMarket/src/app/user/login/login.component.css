@@ -1,4 +1,4 @@
-form{
+/* form{
     width: 30%;
     text-align: center;
     margin: 10% auto;
@@ -8,4 +8,19 @@ fieldset{
     border: 1px solid black;
 }
 
+ */
 
+ .login-container{
+    border: 1px solid black;
+    width: 30%;
+    text-align: center;
+    margin: auto;
+    margin-top: 5%;
+ }
+
+
+ .forgot-label{
+    margin-left: 90%;
+    width: 100%;
+    float: right;
+ }

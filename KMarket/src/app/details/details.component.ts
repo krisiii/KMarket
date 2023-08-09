@@ -37,7 +37,7 @@ export class DetailsComponent implements OnInit {
     let itemID = this.activatedRoute.snapshot.params['itemID'];
     console.log(itemID);
     this.object = this.afs
-      .collection('momos_v')
+      .collection('products')
       .doc(itemID)
       .ref.get()
       .then(function (doc) {
@@ -48,20 +48,25 @@ export class DetailsComponent implements OnInit {
 
           // console.log(mitCommaValues);
 
-          const hasImage = product.data.hasImage;
-          const itemCategory = product.data.itemCategory;
-          const itemType = product.data.itemType;
           const itemID = product.data.itemID;
           const itemName = product.data.itemName;
-          const itemPriceFull = product.data.itemPriceFull;
+          const itemPrice = product.data.itemPrice;
+          const itemSize = product.data.itemSize;
+          const itemCategory = product.data.itemCategory;
+          const itemGender = product.data.itemGender;
+          const itemType = product.data.itemType;
+          const itemImage = product.data.itemImage;
+
 
           let object = {
-            hasImage: hasImage,
-            itemName: itemName,
-            itemPriceFull: itemPriceFull,
-            itemCategory: itemCategory,
             itemID: itemID,
+            itemName: itemName,
+            itemPrice: itemPrice,
+            itemCategory: itemCategory,
+            itemSize: itemSize,
             itemType: itemType,
+            itemGender:itemGender,
+            itemImage:itemImage
           };
           console.log(object);
           

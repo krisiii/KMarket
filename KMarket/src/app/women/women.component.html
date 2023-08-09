@@ -1,0 +1,65 @@
+<app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+
+<div class="side-categories">
+  <p>NEW</p>
+  <p>JACKETS</p>
+  <p>BLAZERS</p>
+  <p>WAISTCOATS | GILETS</p>
+  <p>DRESSES | JUMPSUITS</p>
+  <p>TOPS | BODYSUITS</p>
+  <p>SHIRTS</p>
+  <p>T-SHIRTS</p>
+  <p>KNITWEAR</p>
+  <p>TROUSERS</p>
+  <p>JEANS</p>
+  <p>SHORTS | SKORTS</p>
+  <p>SKIRTS</p>
+  <p>SHOES</p>
+  <p>BAGS</p>
+  <p>ACCESSORIES | JEWELLERY</p>
+  <p>SWIMWEAR</p>
+  <p>PERFUMES</p> 
+  <p>SALE</p>
+
+</div>
+
+<ng-container *ngFor="let p of products | async">
+  <div *ngIf="p.itemGender === 'WOMEN'">
+    <div
+      class="container"
+      *ngIf="searchText === '' || p.itemName.toLowerCase().includes(searchText)"
+    >
+      <div class="page-inner">
+        <div class="row">
+          <div class="el-wrapper">
+            <div class="box-up">
+              <img class="img" [src]="p.hasImage" alt="" />
+              <div class="img-info">
+                <div class="info-inner">
+                  <span class="p-name">{{ p.itemName }}</span>
+                  <span class="p-company">{{ p.itemCategory }}</span>
+                </div>
+                <div class="a-size">
+                  Available sizes : <span class="size">S , M , L , XL</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="box-down">
+              <div class="h-bg">
+                <div class="h-bg-inner"></div>
+              </div>
+
+              <a class="cart" href="#">
+                <span class="price">{{ p.itempriceFull }}</span>
+                <span class="add-to-cart">
+                  <span class="txt">Add in cart</span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

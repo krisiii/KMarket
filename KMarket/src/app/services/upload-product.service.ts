@@ -13,6 +13,6 @@ export class UploadProductService {
     })
    }
    getObjectById(itemID:any){
-    return this.afs.collection('momos_v').doc(itemID).ref;
+    return this.afs.collection('products').doc(itemID).ref;
    }
 }

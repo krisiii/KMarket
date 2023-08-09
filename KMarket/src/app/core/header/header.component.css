@@ -1,5 +1,10 @@
+header{
+    overflow: hidden;
+}
+
+
 .upper-navbar-wrap{
-    background-color: #79c2d0;
+    background-color: #a2a8d3;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -9,6 +14,12 @@
 }
 
 /* Logo and Name */
+
+.site-name{
+    color: #3c4b66;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 .logo-wrap{
     padding-left: 30px;
     font-size: 200%;
@@ -33,41 +44,59 @@
 button{
     margin: 10px;
     padding: 10px;
-    background-color: blue;
+    background-color: #3c4b66;
+    color: #a2a8d3;
 }
 
 /* Navigation */
 
 nav{
     display: inline-block;
-    background-color: #757a79;
+    background-color: #3c4b66;
     margin: 0 auto;
     width: 100%;
     text-align: center;
+    padding-top: 1%;
 }
 
 nav li{
+    color: #a2a8d3;
     display: inline-block;
     font-size: 100%;
 }
 
+nav li a:visited{
+    color: #a2a8d3;
+}
+
 .first-element {
-    padding-right: 10%;
+    color: #a2a8d3;
+    padding-right: 6%;
     border-right: 5px solid lightblue;
     border-left: 5px solid lightblue;
-    padding-left: 10%;
+    padding-left: 6%;
+}
+
+a, a:hover, a:active, a:visited, a:focus {
+    text-decoration:none;
 }
 
 .second-element {
-    padding-right: 10%;
+    padding-right: 6%;
     border-right: 5px solid lightblue;
-    padding-left: 10%;
+    padding-left: 6%;
 }
 
 .third-element {
     border-right: 5px solid lightblue;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 6%;
+    padding-right: 6%;
+}
+
+.fourth-element {
+    border-right: 5px solid lightblue;
+    padding-left: 6%;
+    padding-right: 6%;
 }
 
 

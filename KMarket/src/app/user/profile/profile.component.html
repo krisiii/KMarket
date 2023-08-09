@@ -1,2 +1,4 @@
-<p>profile works!</p>
-<button (click)="try()">login form</button>
+<div *ngIf="afs.authState | async as user">
+    <p>hello</p>
+    <p>{{user.email}}</p>
+</div>

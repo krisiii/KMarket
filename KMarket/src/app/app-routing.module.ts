@@ -4,6 +4,11 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { DetailsComponent } from './details/details.component';
+import { MenComponent } from './men/men.component';
+import { WomenComponent } from './women/women.component';
+import { JacketsComponent } from './men-categories/jackets/jackets.component';
+import { BlazersComponent } from './men-categories/blazers/blazers.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   {
@@ -30,8 +35,39 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
+    path: 'men',
+    children:[
+      {
+        path: '',
+        pathMatch: 'full',
+        component: MenComponent
+      },
+      {
+        path: 'jackets',
+        component: JacketsComponent
+      },
+      {
+        path: 'blazers',
+        component: BlazersComponent
+      },
+      {
+        path: ':itemID',
+        component: DetailsComponent
+      },
+    ]
+    
+  },
+  {
+    path: 'women',
+    component: WomenComponent
+  },
+  {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'cart/:itemID', 
+    component: CartComponent
   },
 ];
 

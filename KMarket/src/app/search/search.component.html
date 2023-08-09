@@ -1,4 +1,47 @@
-
+<!-- 
 <div class="search-container">
     <input type="text" [(ngModel)]="enteredSearchValue" (input)="onSearchTextChanged()">
   </div>
+   -->
+
+
+   
+<div class="Card">
+  <div class="CardInner">
+    <label>Search for your product!</label>
+    <div class="container">
+      <div class="Icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#657789"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-search"
+        >
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+      </div>
+      <div class="InputContainer">
+        <input
+          placeholder="Search..."
+          [(ngModel)]="enteredSearchValue"
+          (input)="onSearchTextChanged()"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="contacts">
+  <p>+359 890 910 363</p>
+  <p>kstoyanova06@gmail.com</p>
+  <i class='fa fa-facebook'></i>
+  <i class="fa fa-twitter"></i>
+  <i class="fa fa-instagram"></i>
+</div> -->

@@ -21,9 +21,16 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SearchComponent } from './search/search.component';
 import { Database } from 'firebase/database';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { LoginComponent } from './user/login/login.component';
+import { MenComponent } from './men/men.component';
+import { WomenComponent } from './women/women.component';
+import { NewComponent } from './men-categories/new/new.component';
+import { JacketsComponent } from './men-categories/jackets/jackets.component';
+import { BlazersComponent } from './men-categories/blazers/blazers.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, DetailsComponent, SearchComponent],
+  declarations: [AppComponent, HomeComponent, DetailsComponent, SearchComponent, MenComponent, WomenComponent, NewComponent, JacketsComponent, BlazersComponent, CartComponent],
   imports: [
     BrowserModule,
     CoreModule,
@@ -42,7 +49,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     AngularFireDatabaseModule
     
       ],
-  providers: [],
+  providers: [LoginComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

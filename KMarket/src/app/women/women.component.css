@@ -1,6 +1,4 @@
-.all{
-  overflow: hidden;
-}
+
 
 .container{
     width: 20%;
@@ -289,4 +287,22 @@ body {
   letter-spacing: 0.045em;
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+/* Side Bar Categories */
+
+.side-categories{
+    float: left;
+    width: 25%;
+    background-color:  #6d7f8f;
+    margin-left: 2%;
+}
+
+.side-categories p{
+    border: 1px solid black;
+    color: #3c4b66;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 5% 3% 5% 3%;
+    text-align: center;
 }

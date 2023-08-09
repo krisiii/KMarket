@@ -1,21 +1,18 @@
 <header>
   <div class="upper-navbar-wrap">
-        
-          <div class="dropdown">
-            <div class="logo-wrap">
-              <p class="logo">*</p>
-              <a routerLink=""><p class="site-name">KMarket</p></a>
-            </div>
-            <div class="dropdown-content">
+    <div class="dropdown">
+      <div class="logo-wrap">
+        <p class="logo">*</p>
+        <a routerLink="/home"><p class="site-name">KMarket</p></a>
+      </div>
+      <!-- <div class="dropdown-content">
               <a href="#">Home</a>
               <a routerLink="/home">Electronics</a>
               <a href="#">Sport</a>
               <a href="#">Clothes and Shoes</a>
               <a href="#">Children</a>
-            </div>
-          
-        
-      </div>
+            </div> -->
+    </div>
 
     <div class="mini-navbar">
       <!-- Not Logged In -->
@@ -28,35 +25,27 @@
 
       <!-- Logged In  -->
       <div class="user" *ngIf="isLoggedIn">
-        <ul>
-          <li class="cart" routerLink="/cart">
-            <i class="fa fa-shopping-cart"></i>
-          </li>
-          <li><button routerLink="/profile">Profile</button></li>
-          <button (click)="logout()">LogOut</button>
-        </ul>
+        <div *ngIf="fireAuth.authState | async as user">
+          <ul>
+            <li class="cart" routerLink="/cart/{{user.uid}}">
+              <i class="fa fa-shopping-cart"></i>
+            </li>
+            <li><button routerLink="/profile">Profile</button></li>
+            <button (click)="logout()">LogOut</button>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
   <!-- Navigation -->
-  <!-- <nav>
+  <nav>
     <ul>
       <li class="first-element">
-        <a routerLink=""
-          ><div class="dropdown">
-            <button class="dropbtn">All Products</button>
-            <div class="dropdown-content">
-              <a href="#">Home</a>
-              <a routerLink="/home">Electronics</a>
-              <a href="#">Sport</a>
-              <a href="#">Clothes and Shoes</a>
-              <a href="#">Children</a>
-            </div>
-          </div>
-        </a>
+        <a routerLink="/home">HOME</a>
       </li>
-      <li class="second-element"><a routerLink="">My Products</a></li>
-      <li class="third-element"><a routerLink="">Create a Product</a></li>
+      <li class="second-element"><a routerLink="/men">MEN</a></li>
+      <li class="third-element"><a routerLink="/women">WOMEN</a></li>
+      <li class="fourth-element"><a routerLink="/home">KIDS</a></li>
     </ul>
-  </nav> -->
+  </nav>
 </header>

@@ -1,0 +1,67 @@
+<div class="all">
+  <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+  <p class="men-sign">BLAZERS</p>
+
+<div class="side-categories">
+  <p><a href="">NEW</a></p>
+  <p><a routerLink="/men/jackets">JACKETS</a></p>
+  <p><a>HOODIES | SWEATSHIRTS</a></p>
+  <p><a>SWEATER | CARDIGANS</a></p>
+  <p><a>LINEN</a></p>
+  <p><a>SHIRTS</a></p>
+  <p><a>T-SHIRTS</a></p>
+  <p><a>POLO SHIRTS</a></p>
+  <p><a>TROUSERS</a></p>
+  <p><a>JEANS</a></p>
+  <p><a>SHORTS</a></p>
+  <p><a>OVERSHIRTS</a></p>
+  <p><a>SHOES</a></p>
+  <p><a>BAGS | BACKPACKS</a></p>
+  <p><a>ACCESSORIES</a></p>
+  <p><a>SWIMWEAR</a></p>
+  <p><a>PERFUMES</a> </p>
+  <p><a>SALE</a></p>
+</div>
+
+<ng-container *ngFor="let p of products | async">
+  <div *ngIf="p.itemCategory === 'Blazers'">
+    <div
+      class="container"
+      *ngIf="searchText === '' || p.itemName.toLowerCase().includes(searchText)"
+    >
+      <div class="page-inner">
+        <div class="row">
+          <div class="el-wrapper">
+            <div class="box-up">
+              <img class="img" [src]="p.itemImage" alt="" />
+              <div class="img-info">
+                <div class="info-inner">
+                  <span class="p-name">{{ p.itemName }}</span>
+                  <span class="p-company">{{ p.itemCategory }}</span>
+                </div>
+                <div class="a-size">
+                  Available sizes : <span class="size">S , M , L , XL</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="box-down">
+              <div class="h-bg">
+                <div class="h-bg-inner"></div>
+              </div>
+
+              <a class="cart" href="#">
+                <span class="price">{{ p.itemPrice }}</span>
+                <span class="add-to-cart">
+                  <span class="txt">Add in cart</span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+</div>

@@ -24,7 +24,7 @@ export class ProductService {
   product: Product | undefined;
 
   constructor(private afs: AngularFirestore, private http: HttpClient) {
-    this.productsCollection = this.afs.collection('momos_v');
+    this.productsCollection = this.afs.collection('products');
   }
 
   getProducts(){
