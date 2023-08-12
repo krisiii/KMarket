@@ -53,7 +53,13 @@ i {
 }
 .new p {
   font-size: 200%;
-  padding-top: 15%;
+  padding-top: 20%;
+}
+
+
+
+.auth{
+  cursor: pointer;
 }
 
 body,
@@ -347,6 +353,7 @@ body {
   height: 80%;
 }
 
+
 /* .products{
   border: 1px solid #3c4b66;
   width: 80%;
@@ -360,3 +367,12 @@ body {
   border: 1px solid #3c4b66;
   margin: 2% 2% 2% 2%;
 } */
+
+
+a, a:hover, a:active, a:visited, a:focus {
+  text-decoration:none;
+}
+
+.txt a{
+  color: white;
+}

@@ -10,6 +10,12 @@ import { JacketsComponent } from './men-categories/jackets/jackets.component';
 import { BlazersComponent } from './men-categories/blazers/blazers.component';
 import { CartComponent } from './cart/cart.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { KidsComponent } from './kids/kids.component';
+import { BabiesComponent } from './kids-categories/babies/babies.component';
+import { BoysComponent } from './kids-categories/boys/boys.component';
+import { BoysShortsComponent } from './kids-categories/boys-shorts/boys-shorts.component';
+import { WomenJacketsComponent } from './women-categories/jackets/jackets.component';
+import { NewbornComponent } from './kids-categories/newborns/newborn.component';
 
 const routes: Routes = [
   {
@@ -19,70 +25,121 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    children:[
+    children: [
       {
         path: '',
         pathMatch: 'full',
-        component: HomeComponent
+        component: HomeComponent,
       },
       {
         path: ':itemID',
-        component: DetailsComponent
-      }
-    ]
+        component: DetailsComponent,
+      },
+    ],
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: 'men',
-    children:[
+    children: [
       {
         path: '',
         pathMatch: 'full',
-        component: MenComponent
+        component: MenComponent,
       },
       {
         path: 'jackets',
-        component: JacketsComponent
+        component: JacketsComponent,
       },
       {
         path: 'blazers',
-        component: BlazersComponent
+        component: BlazersComponent,
       },
       {
         path: ':itemID',
-        component: DetailsComponent
+        component: DetailsComponent,
       },
-    ]
-    
+    ],
   },
   {
     path: 'women',
-    component: WomenComponent
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        component: WomenComponent,
+      },
+      {
+        path: 'jackets',
+        component: WomenJacketsComponent
+      }
+    ],
+  },
+  {
+    path: 'kids',
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        component: KidsComponent,
+      },
+      {
+        path: 'babies',
+        children: [
+          {
+            path: '',
+            pathMatch: 'full',
+            component: BabiesComponent,
+          },
+          {
+            path: 'newborn',
+            component: NewbornComponent,
+          },
+        ],
+      },
+      {
+        path: 'boys',
+        children: [
+          {
+            path: '',
+            pathMatch: 'full',
+            component: BoysComponent,
+          },
+          // {
+          //   path: 'coats&jackets',
+          //   component:
+          // },
+          {
+            path: 'shorts',
+            component: BoysShortsComponent,
+          },
+        ],
+      },
+    ],
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
   },
   {
-    path: 'cart', 
-    children:[
+    path: 'cart',
+    children: [
       {
         path: ':itemID',
-        component: CartComponent
-      }
-    ]
+        component: CartComponent,
+      },
+    ],
   },
   {
     path: '**',
-    component: NotFoundComponent
+    component: NotFoundComponent,
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

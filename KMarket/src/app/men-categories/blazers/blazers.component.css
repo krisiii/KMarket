@@ -9,6 +9,13 @@
     margin: 4%;
  }
 
+ .cart{
+  cursor: pointer;
+}
+
+.txt a{
+  color: white;
+}
 /* MEN Sign */
 
 .men-sign{

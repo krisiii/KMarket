@@ -50,12 +50,22 @@
                 <div class="h-bg-inner"></div>
               </div>
 
-              <a class="cart" href="#">
-                <span class="price">{{ p.itemPrice }}</span>
-                <span class="add-to-cart">
-                  <span class="txt">Add in cart</span>
-                </span>
+              <a class="cart" *ngIf="fireAuth.authState | async as user">
+                <a (click)="addToCart(p)">
+                  <span class="price">{{ p.itemPrice }}BGN</span>
+                  <span class="add-to-cart">
+                    <span class="txt">Add in cart</span>
+                  </span>
+                </a>
               </a>
+              <!-- <div #elseBlock>
+                <a class="cart">
+                  <span class="price">{{ p.itemPrice }}BGN</span>
+                  <span class="add-to-cart">
+                    <span class="txt"><a routerLink="/login">No cart</a></span>
+                  </span>
+                </a>
+              </div> -->
             </div>
           </div>
         </div>

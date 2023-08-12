@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Observable } from 'rxjs';
+import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class BlazersComponent {
 
   constructor(
     private productsService: ProductService,
-    private fireAuth: AngularFireAuth
+    public fireAuth: AngularFireAuth,
+    private cartService: CartService
   ) {}
 
   isLoggedIn = false;
@@ -39,5 +41,9 @@ export class BlazersComponent {
   onSearchTextEntered(searchValue: string) {
     this.searchText = searchValue;
     console.log(this.searchText);
+  }
+  addToCart(p: any) {
+    this.cartService.cartAdd(p);
+    window.alert('Added to cart successfully!')
   }
 }

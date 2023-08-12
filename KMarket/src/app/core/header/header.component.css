@@ -13,6 +13,13 @@ header{
     width: 100%;
 }
 
+
+.user li{
+    color: #3c4b66;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
 /* Logo and Name */
 
 .site-name{
@@ -146,6 +153,8 @@ a, a:hover, a:active, a:visited, a:focus {
     cursor: pointer;
   }
 
+
+  
 
 
   

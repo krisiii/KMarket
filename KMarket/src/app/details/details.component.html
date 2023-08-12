@@ -4,12 +4,29 @@
       <p class="name">{{ object.itemName }}</p>
       <p class="gender">{{ object.itemGender }}</p>
       <p class="description">{{ object.description }}</p>
-      <p class="price">Price: {{ object.itemPrice }}</p>
+      <p class="price">Price: {{ object.itemPrice }}BGN</p>
       <p class="size">S M L</p>
-      <button>Add to card</button>
+      
+        <div *ngIf="fireAuth.authState | async as user" class="auth">
+          <button>
+            <a class="cart" (click)="addToCart(object)">
+              <span class="add-to-cart">
+                <span class="txt"><a>Add in cart</a> </span>
+              </span>
+            </a>
+          </button>
+        </div>
+        <!-- <div #elseBlock class="auth">
+          <button><a class="cart">
+            <span class="add-to-cart">
+              <span class="txt"><a routerLink="/login">No cart</a></span>
+            </span>
+          </a></button>
+          
+        </div> -->
+      
       <img [src]="object.itemImage" alt="" />
-      <p class="id">ID: {{object.itemID}}</p>
-
+      <p class="id">ID: {{ object.itemID }}</p>
     </div>
   </div>
 </div>

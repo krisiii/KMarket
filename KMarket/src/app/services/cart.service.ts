@@ -1,12 +1,11 @@
 import { Injectable, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
   AngularFirestore,
   AngularFirestoreCollection,
 } from '@angular/fire/compat/firestore';
-import { User } from '../user';
-import { Auth } from 'firebase/auth';
+
 import { switchMap } from 'rxjs';
 
 @Injectable({
@@ -18,11 +17,8 @@ export class CartService implements OnInit {
 
   productsCollection: AngularFirestoreCollection;
 
-  constructor(public afs: AngularFireAuth, private af: AngularFirestore) {
-
-  }
+  constructor(public afs: AngularFireAuth, private af: AngularFirestore) {}
   ngOnInit(): void {}
-
 
   uid: any;
   getProducts() {
@@ -30,9 +26,11 @@ export class CartService implements OnInit {
       switchMap((user) => {
         if (user) {
           let uid = user.uid.toString();
-          this.productsCollection = this.af.collection(`cart/Cart Products/${uid}`);
+          this.productsCollection = this.af.collection(
+            `cart/Cart Products/${uid}`
+          );
           console.log(uid);
-          
+
           return this.productsCollection.valueChanges({ idField: 'itemID' });
         } else {
           // Handle the case where user is not authenticated
@@ -43,12 +41,9 @@ export class CartService implements OnInit {
   }
 
   cartAdd(product: any) {
-
-    
     this.cartItemList.push(product);
     this.productList.next(this.cartItemList);
     console.log(this.cartItemList);
-
 
     const Product = {
       itemID: product.itemID,
@@ -70,29 +65,54 @@ export class CartService implements OnInit {
         .collection(`${uid}`)
         .doc(product.itemID)
         .set(Product);
-        
     });
-
   }
 
   getTotalPrice(): number {
     let grandTotal = 0;
     this.cartItemList.map((a: any) => {
-      grandTotal += a.total;
+      // a.itemPrice = +a.itemPrice;
+      grandTotal += a.itemPrice;
+      console.log(grandTotal);
     });
     return grandTotal;
   }
 
   removeCartItem(product: any) {
-    this.cartItemList.map((a: any, index: any) => {
-      if (product.itemID === a.itemID) {
-        this.cartItemList.splice(index, 1);
-      }
+    this.afs.authState.subscribe((user) => {
+      const uid = user?.uid.toString();
+      const data = this.af
+        .collection(`/cart/Cart Products/${uid}`)
+        .doc(`${product.itemID}`);
+      data.delete();
+      data
+        .delete()
+        .then(() => {
+          console.log('Document successfully deleted!');
+        })
+        .catch((error) => {
+          console.error('Error removing document: ', error);
+        });
     });
-    this.productList.next(this.cartItemList);
+    console.log(product.itemID);
   }
   removeAllCartItems() {
-    this.cartItemList = [];
-    this.productList.next(this.cartItemList);
+    this.afs.authState.subscribe((user) => {
+      const uid = user?.uid.toString();
+      const data = this.af.collection(`cart/Cart Products/${uid}`);
+
+      data.get().subscribe((a) => {
+        a.forEach((doc) => {
+          doc.ref
+            .delete()
+            .then(() => {
+              console.log('Document successfully deleted!');
+            })
+            .catch((error) => {
+              console.error('Error removing document: ', error);
+            });
+        });
+      });
+    });
   }
 }

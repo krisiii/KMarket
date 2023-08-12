@@ -29,9 +29,15 @@ import { JacketsComponent } from './men-categories/jackets/jackets.component';
 import { BlazersComponent } from './men-categories/blazers/blazers.component';
 import { CartComponent } from './cart/cart.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { KidsComponent } from './kids/kids.component';
+import { BabiesComponent } from './kids-categories/babies/babies.component';
+import { BoysComponent } from './kids-categories/boys/boys.component';
+import { BoysShortsComponent } from './kids-categories/boys-shorts/boys-shorts.component';
+import { WomenJacketsComponent } from './women-categories/jackets/jackets.component';
+import { NewbornComponent } from './kids-categories/newborns/newborn.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, DetailsComponent, SearchComponent, MenComponent, WomenComponent, NewComponent, JacketsComponent, BlazersComponent, CartComponent, NotFoundComponent],
+  declarations: [AppComponent, HomeComponent, DetailsComponent, SearchComponent, MenComponent, WomenComponent, NewComponent, JacketsComponent, BlazersComponent, CartComponent, NotFoundComponent, KidsComponent, BabiesComponent, BoysComponent, NewbornComponent, BoysShortsComponent, WomenJacketsComponent],
   imports: [
     BrowserModule,
     CoreModule,

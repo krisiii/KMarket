@@ -16,6 +16,18 @@
     padding-right: 2%;
 }
 
+.txt a{
+    color: #142d4c; 
+}
+
+.cart a:hover{
+    color: #d5def5;
+}
+
+a, a:active, a:visited {
+    text-decoration:none;
+  }
+
 .name{
     font-size: 400%;
     float: right;

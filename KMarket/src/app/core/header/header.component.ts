@@ -13,16 +13,17 @@ import { ProductService } from 'src/app/services/product.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   public totalItem: number = 0;
   products: Product | undefined;
   object: Promise<Product | null>;
+  numberOfDocuments: number = 0;
+
   constructor(
     public fireAuth: AngularFireAuth,
     private router: Router,
     public db: AngularFireDatabase,
-    private cartService: CartService,
-    private productService: ProductService
+    private afs: AngularFirestore
   ) {}
   isLoggedIn = false;
 
@@ -41,11 +42,18 @@ export class HeaderComponent {
         this.isLoggedIn = true;
       }
       console.log(this.isLoggedIn);
-
     });
 
-    // this.cartService.getProducts().subscribe(res=>{
-    //   this.totalItem = res.length;
-    // })
+    this.fireAuth.authState.subscribe((user)=>{
+      const uid = user?.uid.toString();
+      const collectionRef = this.afs.collection(`cart/Cart Products/${uid}`);
+
+    collectionRef.get().subscribe((querySnapshot) => {
+      this.numberOfDocuments = querySnapshot.size;
+      console.log('Number of documents in collection:', this.numberOfDocuments);
+    });
+    })
+
+    
   }
 }

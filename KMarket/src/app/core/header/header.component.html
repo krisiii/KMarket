@@ -2,7 +2,7 @@
   <div class="upper-navbar-wrap">
     <div class="dropdown">
       <div class="logo-wrap">
-        <p class="logo">*</p>
+        <!-- <p class="logo">*</p> -->
         <a routerLink="/home"><p class="site-name">KMarket</p></a>
       </div>
       <!-- <div class="dropdown-content">
@@ -27,10 +27,11 @@
       <div class="user" *ngIf="isLoggedIn">
         <div *ngIf="fireAuth.authState | async as user">
           <ul>
-            <li class="cart" routerLink="/cart/{{user.uid}}">
-              <i class="fa fa-shopping-cart">{{totalItem}}</i>
+            <li class="cart" routerLink="/cart/{{ user.uid }}">
+              <i class="fa fa-shopping-cart">{{ numberOfDocuments }}</i>
             </li>
-            <li><button routerLink="/profile">Profile</button></li>
+            <li class="email">{{user.email}}</li>
+            <!-- <li><button routerLink="/profile">Profile</button></li> -->
             <button (click)="logout()">LogOut</button>
           </ul>
         </div>
@@ -45,7 +46,7 @@
       </li>
       <li class="second-element"><a routerLink="/men">MEN</a></li>
       <li class="third-element"><a routerLink="/women">WOMEN</a></li>
-      <li class="fourth-element"><a routerLink="/home">KIDS</a></li>
+      <li class="fourth-element"><a routerLink="/kids">KIDS </a></li>
     </ul>
   </nav>
 </header>

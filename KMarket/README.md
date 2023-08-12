@@ -28,11 +28,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## KMarket
 
-Clothes Ecommerce Website for Men, Women and Kids clothes, made with Firebase, Angular and Bootstrap
+Clothes Ecommerce Website for Men, Women and Kids clothes, made with Firebase and Angular
 
 ## Header
 
-Logo and Name design
+Name design
 
 Login and Register Buttons with router links to the pages
 
