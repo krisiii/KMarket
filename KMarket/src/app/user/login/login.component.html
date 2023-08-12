@@ -6,7 +6,7 @@
 
       <div class="username">
         <mat-form-field appearance="outline">
-          <mat-label>Username</mat-label>
+          <mat-label>Email</mat-label>
           <input formControlName="username" matInput type="text" />
         </mat-form-field>
       </div>
@@ -15,7 +15,7 @@
 
       <mat-form-field appearance="outline" class="password">
         <mat-label>Password</mat-label>
-        <input formControlName="password" matInput type="text" />
+        <input formControlName="password" matInput type="password" />
       </mat-form-field>
       <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 
@@ -37,7 +37,7 @@
         Don't have an account? <a routerLink="/register">Sign Up</a>
       </p>
 
-      <a class="forgot-label" routerLink="/forgot-password">Forgot Password?</a>
+      <a class="forgot-label" routerLink="/forgotPassword">Forgot Password?</a>
     </div>
   </div>
 </div>

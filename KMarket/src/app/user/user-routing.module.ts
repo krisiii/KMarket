@@ -6,39 +6,24 @@ import { ProfileComponent } from './profile/profile.component';
 // import { CartComponent } from './cart/cart.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyComponent } from './verify/verify.component';
-// import { ProfileComponent } from './profile/profile.component';
-// import { AuthActivate } from '../core/guards/auth.activate';
 
 const routes: Routes = [
   {
+    path: 'forgotPassword',
+    component: ForgotPasswordComponent,
+  },
+  {
     path: 'login',
     component: LoginComponent,
-    //canActivate: [AuthActivate],
   },
   {
     path: 'register',
     component: RegisterComponent,
-    //canActivate: [AuthActivate],
   },
-  {
-    path: 'profile',
-    component: ProfileComponent,
-    //canActivate: [AuthActivate],
-  },
-  // {
-  //   path: 'cart',
-  //   component: CartComponent,
-  //   //canActivate: [AuthActivate],
-  // },
-  {
-    path: 'forgot-password',
-    component: ForgotPasswordComponent,
-    //canActivate: [AuthActivate],
-  },
+  
   {
     path: 'verify',
     component: VerifyComponent,
-    //canActivate: [AuthActivate],
   },
 ];
 

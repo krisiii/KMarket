@@ -133,7 +133,7 @@ const routes: Routes = [
     ],
   },
   {
-    path: '**',
+    path: '*',
     component: NotFoundComponent,
   },
 ];

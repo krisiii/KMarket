@@ -6,7 +6,6 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
-  NgForm,
   Validators,
 } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
@@ -80,10 +79,6 @@ export class LoginComponent implements OnInit {
         console.error(err);
         this.errorMessage = err;
       });
-  }
-
-  getProfilePage() {
-    console.log(this.loginForm.value);
   }
 
   forgotPassword(email: string) {

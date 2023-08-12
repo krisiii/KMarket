@@ -28,6 +28,10 @@ export class RegisterComponent implements OnInit {
     private fb: FormBuilder
   ) {
     
+    
+    this.emailForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+    });
     this.passwordForm = this.fb.group(
       {
         password: ['', [Validators.required, passwordValidator]],
@@ -35,9 +39,6 @@ export class RegisterComponent implements OnInit {
       },
       { validator: matchPasswords }
     );
-    this.emailForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-    });
   }
 
   get passwordControl() {
@@ -66,9 +67,6 @@ export class RegisterComponent implements OnInit {
       .catch((err: any) => {
         console.error(err);
         this.errorMessage=err;
-        if(err == 'FirebaseError: Firebase: The email address is badly formatted. (auth/invalid-email).'){
-          this.errorMessage = 'Email already in use!'
-        }
       });
   }
   ngOnInit(): void {}

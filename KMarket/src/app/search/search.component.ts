@@ -13,14 +13,10 @@ export class SearchComponent implements OnInit {
   enteredSearchValue: string = '';
   products: Observable<any[]>;
 
-  constructor(
-    private productsService: ProductService,
-    private fireAuth: AngularFireAuth
-  ) {}
+  constructor(private productsService: ProductService) {}
   ngOnInit(): void {
     this.products = this.productsService.getProducts();
-    this.productsService.getProducts().subscribe((res) => {
-    });
+    this.productsService.getProducts().subscribe((res) => {});
   }
 
   @Output()
