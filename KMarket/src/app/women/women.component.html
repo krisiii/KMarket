@@ -1,4 +1,6 @@
-<app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+<div class="all">
+  <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+  <p class="men-sign">WOMEN</p>
 
 <div class="side-categories">
   <p>NEW</p>
@@ -33,7 +35,7 @@
         <div class="row">
           <div class="el-wrapper">
             <div class="box-up">
-              <img class="img" [src]="p.hasImage" alt="" />
+              <img class="img" [src]="p.itemImage" alt="" />
               <div class="img-info">
                 <div class="info-inner">
                   <span class="p-name">{{ p.itemName }}</span>
@@ -63,3 +65,5 @@
     </div>
   </div>
 </ng-container>
+
+</div>

@@ -28,9 +28,10 @@ import { NewComponent } from './men-categories/new/new.component';
 import { JacketsComponent } from './men-categories/jackets/jackets.component';
 import { BlazersComponent } from './men-categories/blazers/blazers.component';
 import { CartComponent } from './cart/cart.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, DetailsComponent, SearchComponent, MenComponent, WomenComponent, NewComponent, JacketsComponent, BlazersComponent, CartComponent],
+  declarations: [AppComponent, HomeComponent, DetailsComponent, SearchComponent, MenComponent, WomenComponent, NewComponent, JacketsComponent, BlazersComponent, CartComponent, NotFoundComponent],
   imports: [
     BrowserModule,
     CoreModule,

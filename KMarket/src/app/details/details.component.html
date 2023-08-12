@@ -1,6 +1,15 @@
+<div class="all">
+  <div *ngIf="object | async as object">
+    <div class="container">
+      <p class="name">{{ object.itemName }}</p>
+      <p class="gender">{{ object.itemGender }}</p>
+      <p class="description">{{ object.description }}</p>
+      <p class="price">Price: {{ object.itemPrice }}</p>
+      <p class="size">S M L</p>
+      <button>Add to card</button>
+      <img [src]="object.itemImage" alt="" />
+      <p class="id">ID: {{object.itemID}}</p>
 
-<div *ngIf="object | async as object">
-    <p>hello</p>
-<p>{{object.itemID}}</p>
-<img [src]="object.itemImage" alt="">
+    </div>
+  </div>
 </div>

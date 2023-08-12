@@ -8,26 +8,38 @@ import {
 import { ProductService } from '../services/product.service';
 import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit {
   products: Observable<any[]>;
+  public productList: any;
 
   constructor(
     private productService: ProductService,
-    private fireAuth: AngularFireAuth
+    public fireAuth: AngularFireAuth,
+    private cartService: CartService,
   ) {}
 
   isLoggedIn = false;
 
   ngOnInit(): void {
+    this.fireAuth.authState.subscribe((user) => {
+      console.log(user);
+    });
+
     this.products = this.productService.getProducts();
-    this.productService.getProducts().subscribe((res) => {
-      console.log(res);
+    this.productService.getProducts().subscribe((res) => {  
+      this.productList = res;
+
+      this.productList.forEach((a:any) => {
+        Object.assign(a,{quantity:1,total:a.itemPrice});   
+        console.log(a);
+      });
       
 
       this.fireAuth.authState.subscribe((user) => {
@@ -37,14 +49,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
         console.log(this.isLoggedIn);
       });
     });
-  }
-  ngAfterViewInit(): void {}
 
+    
+  }
+
+  addToCart(p: any) {
+    
+    this.cartService.cartAdd(p); 
+  }
   searchText: string = '';
 
   onSearchTextEntered(searchValue: string) {
     this.searchText = searchValue;
     console.log(this.searchText);
-    
   }
 }

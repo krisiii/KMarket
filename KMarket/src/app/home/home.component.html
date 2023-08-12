@@ -1,55 +1,82 @@
+
+
 <div class="all">
+  
+    
+
+<div class="top">
+  <p class="welcome">Welcome to KMarket!</p>
+  <img src="https://img.freepik.com/free-vector/flat-design-geometric-horizontal-banner_23-2149953336.jpg?w=996&t=st=1691774242~exp=1691774842~hmac=7555339356f6e76fa7f0f01867e30fc96234a407cfad3aacba987975d417a55b" alt="" class="bannerPhoto">
+
+</div>
+
+
+  <div class="tokens">
+    <div class="contacts">
+      <p><i class='fa fa-phone'></i>  +359 890 910 363</p>
+      <p><i class='fa fa-google'></i>  kstoyanova06@gmail.com</p>
+      <i class='fa fa-facebook'></i>
+      <i class="fa fa-twitter"></i>
+      <i class="fa fa-instagram"></i>
+    </div>
   <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
-
-<!-- <ng-container class="container page-wrapper" *ngFor="let p of products | async">
-  <div
-    *ngIf="searchText === '' || p.itemName.toLowerCase().includes(searchText)"
-  >
-    <img [src]="p.hasImage" alt="" />
-    <p>{{ p.itemCategory }}</p>
-    <p>{{ p.itemID }}</p>
-    <p>{{ p.itemName }}</p>
-    <button routerLink="/home/{{ p.itemID }}">Details</button>
   </div>
-</ng-container> -->
+  
 
-<ng-container *ngFor="let p of products | async">
-  <div
-    class="container"
-    *ngIf="searchText === '' || p.itemName.toLowerCase().includes(searchText)"
-  >
-    <div class="page-inner">
-      <div class="row">
-        <div class="el-wrapper">
-          <div class="box-up">
-            <img class="img" [src]="p.itemImage" alt="" />
-            <div class="img-info">
-              <div class="info-inner">
-                <span class="p-name">{{ p.itemName }}</span>
-                <span class="p-company">{{ p.itemCategory }}</span>
-              </div>
-              <div class="a-size">
-                Available sizes : <span class="size">S , M , L , XL</span>
+  <!-- <img class="bannerPhoto" src="https://img.freepik.com/free-vector/flat-minimal-boutique-facebook-post_23-2149323789.jpg?w=900&t=st=1691771860~exp=1691772460~hmac=6505c1be039b65e285d162055f3ada085d8d34c9306cdc87856d5f3eda512363" alt="image"/> -->
+
+  <div class="new">
+    
+  <p>NEWEST PRODUCTS</p>
+  </div>
+
+
+  <div class="products">
+    <div>
+      <ng-container *ngFor="let p of products | async">
+        <div
+          
+          *ngIf="searchText === '' || p.itemName.toLowerCase().includes(searchText)"
+        >
+          <div class="container" *ngIf="p.itemType === 'New'">
+            <div class="page-inner">
+              <div class="row">
+                <div class="el-wrapper">
+                  <div class="box-up">
+                    <img class="img" [src]="p.itemImage" alt="" />
+                    <div class="img-info">
+                      <div class="info-inner">
+                        <a class="p-name" routerLink="/men/{{ p.itemID }}">{{
+                          p.itemName
+                        }}</a>
+                        <span class="p-company">{{ p.itemCategory }}</span>
+                      </div>
+                      <div class="a-size">
+                        Available sizes : <span class="size">S , M , L , XL</span>
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="box-down">
+                    <div class="h-bg">
+                      <div class="h-bg-inner"></div>
+                    </div>
+      
+                    <div *ngIf="fireAuth.authState | async as user" class="auth">
+                      <a class="cart" (click)="addToCart(p)">
+                        <span class="price">{{ p.itemPrice }}</span>
+                        <span class="add-to-cart">
+                          <span class="txt">Add in cart</span>
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div class="box-down">
-            <div class="h-bg">
-              <div class="h-bg-inner"></div>
-            </div>
-
-            <a class="cart" href="#">
-              <span class="price">{{ p.itemPriceFull }}</span>
-              <span class="add-to-cart">
-                <span class="txt">Add in cart</span>
-              </span>
-            </a>
           </div>
         </div>
-      </div>
+      </ng-container>
     </div>
   </div>
-</ng-container>
-
 </div>

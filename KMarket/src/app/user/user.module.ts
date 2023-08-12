@@ -8,12 +8,11 @@ import { LoginWithGoogleComponent } from './login-with-google/login-with-google.
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ProfileComponent } from './profile/profile.component';
-import { CartComponent } from './cart/cart.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyComponent } from './verify/verify.component';
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, LoginWithGoogleComponent, ProfileComponent, CartComponent, ForgotPasswordComponent, VerifyComponent],
+  declarations: [LoginComponent, RegisterComponent, LoginWithGoogleComponent, ProfileComponent, ForgotPasswordComponent, VerifyComponent],
   imports: [
     CommonModule,
     UserRoutingModule,

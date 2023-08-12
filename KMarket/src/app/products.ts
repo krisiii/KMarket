@@ -7,4 +7,5 @@ export interface Product{
     itemGender: string,
     itemType: string,
     itemImage: string,
+    description: string
 }

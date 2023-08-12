@@ -4,24 +4,94 @@
       <p class="title">Register to KMarket</p>
 
       <div class="email">
-        <mat-form-field appearance="outline">
-          <mat-label>Username</mat-label>
-          <input formControlName="username" matInput type="text" />
+        <mat-form-field appearance="outline" [formGroup]="emailForm" >
+          <mat-label>Email</mat-label>
+          <input matInput type="email" id="email" formControlName="email" />
         </mat-form-field>
+        <div
+          *ngIf="
+            emailControl?.invalid &&
+            (emailControl?.dirty || emailControl?.touched)
+          "
+        >
+          <div *ngIf="emailControl?.errors?.['required']">
+            Email is required!
+          </div>
+          <div *ngIf="emailControl?.errors?.['email']">
+            Invalid email format!
+          </div>
+          
+        </div>
+        <form></form>
       </div>
 
       <div class="pass">
-        <mat-form-field appearance="outline">
-          <mat-label>Password</mat-label>
-          <input formControlName="password" matInput type="text" />
-        </mat-form-field>
+        <form [formGroup]="passwordForm" >
+          <mat-form-field appearance="outline" class="password">
+            <mat-label>Password</mat-label>
+            <input
+              type="password"
+              matInput
+              formControlName="password"
+              placeholder="Enter password"
+            />
+          </mat-form-field>
+          <div *ngIf="passwordControl?.hasError('required')">
+            Password is required!
+          </div>
+          <div *ngIf="passwordControl?.hasError('minLength')">
+            Password must be at least 8 characters!
+          </div>
+          <div *ngIf="passwordControl?.hasError('uppercase')">
+            Password must contain an uppercase letter!
+          </div>
+          <div *ngIf="passwordControl?.hasError('lowercase')">
+            Password must contain a lowercase letter!
+          </div>
+          <div *ngIf="passwordControl?.hasError('digit')">
+            Password must contain a digit!
+          </div>
+          <div *ngIf="passwordControl?.hasError('noSpaces')">
+            Password must not contain spaces!
+          </div>
+          
+        </form>
       </div>
 
       <div class="confPass">
-        <mat-form-field appearance="outline">
-          <mat-label>Confirm Password</mat-label>
-          <input formControlName="confirmPassword" matInput type="text" />
-        </mat-form-field>
+        <form [formGroup]="passwordForm" >
+          <mat-form-field appearance="outline" class="confirm">
+            <mat-label>Confirm Password</mat-label>
+            <input
+              type="password"
+              matInput
+              formControlName="confirmPassword"
+              placeholder="Enter password"
+            />
+          </mat-form-field>
+          <div *ngIf="passwordForm.hasError('passwordsMismatch') && (passwordControl?.dirty || confirmPasswordControl?.dirty)">
+            Passwords do not match.
+          </div>
+          <div *ngIf="passwordControl?.hasError('required')">
+            Password is required!
+          </div>
+          <div *ngIf="passwordControl?.hasError('minLength')">
+            Password must be at least 8 characters!
+          </div>
+          <div *ngIf="passwordControl?.hasError('uppercase')">
+            Password must contain an uppercase letter!
+          </div>
+          <div *ngIf="passwordControl?.hasError('lowercase')">
+            Password must contain a lowercase letter!
+          </div>
+          <div *ngIf="passwordControl?.hasError('digit')">
+            Password must contain a digit!
+          </div>
+          <div *ngIf="passwordControl?.hasError('noSpaces')">
+            Password must not contain spaces!
+          </div>
+          <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+        </form>
       </div>
 
       <button (click)="registerWithEmailAndPassword()">Register</button>

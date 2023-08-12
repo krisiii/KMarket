@@ -9,14 +9,6 @@ import {
 import { Observable } from 'rxjs';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 
-// interface Product{
-//   hasImage: string,
-//   itemCategory: string,
-//   itemName: string,
-//   itemID: string,
-//   itemPriceFull: number,
-//   itemType: string,
-// }
 
 @Component({
   selector: 'app-details',
@@ -56,6 +48,7 @@ export class DetailsComponent implements OnInit {
           const itemGender = product.data.itemGender;
           const itemType = product.data.itemType;
           const itemImage = product.data.itemImage;
+          const description = product.data.description
 
 
           let object = {
@@ -66,18 +59,13 @@ export class DetailsComponent implements OnInit {
             itemSize: itemSize,
             itemType: itemType,
             itemGender:itemGender,
-            itemImage:itemImage
+            itemImage:itemImage,
+            description: description
           };
           console.log(object);
           
 
           return object;
-
-          // this.object = object;
-
-          // console.log(object);
-
-          // console.log(doc.data());
         }
         return null;
       });

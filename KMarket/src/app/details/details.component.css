@@ -1,0 +1,77 @@
+.all{
+    background-color: #e7eaf6;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.container{
+    border: 3px solid #3c4b66;
+    border-radius: 6%;
+    width: 70%;
+    /* height: 900%; */
+    padding-top: 3%;
+    padding-bottom: 5%;
+    color: #113f67;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.name{
+    font-size: 400%;
+    float: right;
+    width: 60%;
+    margin-bottom: 2%;
+    color: #113f67;
+}
+
+.gender{
+    float: right;
+    width: 60%;
+    color: #113f67;
+    padding-bottom: 3%;
+}
+
+.description{
+    border: 1px solid #a2a8d3;
+    float: right;
+    width: 60%;
+    padding: 5% 5% 5% 5%;
+    border-radius: 2%;
+}
+
+.size{
+    float: right;
+    width: 60%;
+}
+
+.price{
+    padding-top: 5%;
+    float: right;
+    width: 60%;
+}
+
+img{
+    width: 300px;
+    height: 360px;
+    margin-right: 2%;
+}
+
+button{
+    float: right;
+    width: 60%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    border: 1px solid #142d4c;
+    border-radius: 5%;
+    color: #142d4c; 
+}
+
+button:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: #3c4b66;
+    color: #d5def5;
+}
+
+.id{
+    padding-top: 2%;
+}

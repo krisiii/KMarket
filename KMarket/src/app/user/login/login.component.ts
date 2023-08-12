@@ -2,10 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { DEFAULT_EMAIL_DOMAINS } from '../constants';
 
 import { Router } from '@angular/router';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  NgForm,
+  Validators,
+} from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
-import { AngularFireAction } from '@angular/fire/compat/database';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { passwordValidator } from 'src/app/passwordValidator';
 
 @Component({
   selector: 'app-login',
@@ -13,20 +19,38 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  hide: boolean = true;
-  passwordControl: FormControl = new FormControl('', Validators.required);
+  passwordForm: FormGroup;
+  emailForm: FormGroup;
+  errorMessage: string;
 
   loginForm: FormGroup = new FormGroup({
     username: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
   });
-  // appEmailDomains = DEFAULT_EMAIL_DOMAINS;
-  constructor(private router: Router, private authService: AuthService, private afs: AngularFireAuth) {}
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private afs: AngularFireAuth,
+    private fb: FormBuilder
+  ) {
+    this.passwordForm = this.fb.group({
+      password: ['', [Validators.required, passwordValidator]],
+    });
+    this.emailForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+    });
+  }
 
   ngOnInit(): void {}
 
-  provider:any;
+  get passwordControl() {
+    return this.passwordForm.get('password');
+  }
+  get emailControl() {
+    return this.emailForm.get('email');
+  }
 
+  provider: any;
 
   loginWithGoogle() {
     this.authService
@@ -36,9 +60,9 @@ export class LoginComponent implements OnInit {
       })
       .catch((err: any) => {
         console.error(err);
+
       });
   }
-
 
   loginWithEmailAndPassword() {
     console.log(this.loginForm.value);
@@ -54,6 +78,7 @@ export class LoginComponent implements OnInit {
       })
       .catch((err: any) => {
         console.error(err);
+        this.errorMessage = err;
       });
   }
 
@@ -62,8 +87,10 @@ export class LoginComponent implements OnInit {
   }
 
   forgotPassword(email: string) {
-    this.afs.sendPasswordResetEmail(email).then(()=>{
-      this.router.navigate([])
-    })
+    this.afs.sendPasswordResetEmail(email).then(() => {
+      this.router.navigate([]);
+    });
   }
+
+  
 }

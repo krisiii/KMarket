@@ -20,7 +20,6 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
     this.products = this.productsService.getProducts();
     this.productsService.getProducts().subscribe((res) => {
-      console.log(res);
     });
   }
 

@@ -1,4 +1,26 @@
-<div *ngIf="afs.authState | async as user">
-<p>hello</p>
-<p>{{user.uid}}</p>
+<div class="all" *ngIf="afs.authState | async as user">
+  <div class="product" *ngFor="let item of products; let i = index">
+    <div class="data">
+      <p class="name">{{ item.itemName }}</p>
+      <p>{{item.itemPrice}}</p>
+      <!-- <p class="description">{{ item.itemDescription }}</p> -->
+      <p>{{ item.quantity }}</p>
+      <p>{{ item.total }}</p>
+      <button class="remove" (click)="removeItem(item)"><i class="fa fa-remove"></i>  Remove item</button>
+    </div>
+    
+    <div class="image">
+        <p class="num">{{ i + 1 }}.</p>
+      <img [src]="item.itemImage" alt="" />
+    </div>
+    <p>{{item.itemID}}</p>
+    <!-- <td>
+        <button (click)="emptyCar()">empty car</button>
+    </td> -->
+  </div>
+  <div class="buttons">
+    <button class="empty" (click)="emptyCar()"><i class="fa fa-trash-o"></i>   Empty car</button>
+    <button class="continue" (click)="emptyCar()"><i class="fa fa-shopping-cart"></i>  Continue Shopping</button>
+    <button class="pay" (click)="emptyCar()"><i class="fa fa-credit-card"></i>  Pay</button>
+  </div>
 </div>

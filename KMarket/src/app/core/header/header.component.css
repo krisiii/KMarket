@@ -22,7 +22,7 @@ header{
 
 .logo-wrap{
     padding-left: 30px;
-    font-size: 200%;
+    font-size: 300%;
 }
 
 .logo-wrap p{
@@ -145,3 +145,7 @@ a, a:hover, a:active, a:visited, a:focus {
   .cart{
     cursor: pointer;
   }
+
+
+
+  

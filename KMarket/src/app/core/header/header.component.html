@@ -28,7 +28,7 @@
         <div *ngIf="fireAuth.authState | async as user">
           <ul>
             <li class="cart" routerLink="/cart/{{user.uid}}">
-              <i class="fa fa-shopping-cart"></i>
+              <i class="fa fa-shopping-cart">{{totalItem}}</i>
             </li>
             <li><button routerLink="/profile">Profile</button></li>
             <button (click)="logout()">LogOut</button>

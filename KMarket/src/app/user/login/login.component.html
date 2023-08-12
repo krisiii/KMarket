@@ -17,6 +17,7 @@
         <mat-label>Password</mat-label>
         <input formControlName="password" matInput type="text" />
       </mat-form-field>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 
       <div class="loginButton">
         <button class="loginBtn" (click)="loginWithEmailAndPassword()">

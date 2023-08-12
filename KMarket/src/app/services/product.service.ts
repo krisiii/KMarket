@@ -1,12 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { Product } from '../products';
-import {tap} from 'rxjs';
-import {Plugins} from '@capacitor/core';
-const {Storage} = Plugins;
-const CART_STORAGE_KEY = 'MY_CART';
+
 
 
 @Injectable({
@@ -14,14 +9,7 @@ const CART_STORAGE_KEY = 'MY_CART';
 })
 export class ProductService {
 
-  private product$$ = new BehaviorSubject<Product | undefined>(undefined);
-
-  product$ = this.product$$.asObservable();
-
-  cart = new BehaviorSubject({});
   productsCollection: AngularFirestoreCollection;
-
-  product: Product | undefined;
 
   constructor(private afs: AngularFirestore, private http: HttpClient) {
     this.productsCollection = this.afs.collection('products');
@@ -31,9 +19,4 @@ export class ProductService {
     return this.productsCollection.valueChanges({idField:'itemID'});
   }
 
-  
-
-  getProduct(itemID:string){
-    return this.http.get<Product>(`http://localhost:4200/home/${itemID}`)
-  }
 }
