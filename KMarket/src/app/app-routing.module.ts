@@ -63,10 +63,6 @@ const routes: Routes = [
     component: WomenComponent
   },
   {
-    path: '**',
-    component: NotFoundComponent
-  },
-  {
     path: 'register',
     component: RegisterComponent
   },
@@ -78,6 +74,10 @@ const routes: Routes = [
         component: CartComponent
       }
     ]
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   },
 ];
 
